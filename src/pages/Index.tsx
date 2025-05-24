@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Smartphone, Database, Globe, Cpu } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Smartphone, Database, Globe, Cpu, Home, User, FolderOpen, MessageCircle } from 'lucide-react';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,28 +11,28 @@ const Index = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#"
+      title: "PCOS Prediction Website",
+      description: "A machine learning-powered web application for PCOS prediction and health monitoring",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop",
+      tech: ["JavaScript", "Machine Learning", "Healthcare"],
+      liveUrl: "https://github.com/adityas777/PCOS-PREDICTION-WEBSITE",
+      githubUrl: "https://github.com/adityas777/PCOS-PREDICTION-WEBSITE"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management tool with real-time updates",
+      title: "Food Delivery App",
+      description: "A full-stack food delivery web app with Google Maps integration and Stripe payments",
+      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=250&fit=crop",
+      tech: ["JavaScript", "Google Maps", "Stripe", "Full-Stack"],
+      liveUrl: "https://github.com/adityas777/FOOD-DILIVERY",
+      githubUrl: "https://github.com/adityas777/FOOD-DILIVERY"
+    },
+    {
+      title: "Swap and Compare",
+      description: "A fun, swipe-based web app where users upload images and enter ranking challenges",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
-      tech: ["Vue.js", "Firebase", "Tailwind CSS"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Beautiful weather app with location-based forecasts",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
-      tech: ["React", "OpenWeather API", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#"
+      tech: ["JavaScript", "Image Upload", "Ranking System"],
+      liveUrl: "https://github.com/adityas777/SWAP-AND-COMPARE",
+      githubUrl: "https://github.com/adityas777/SWAP-AND-COMPARE"
     }
   ];
 
@@ -45,10 +45,17 @@ const Index = () => {
     { name: "DevOps & Tools", icon: Cpu, level: 80, description: "Docker, AWS, Git" },
   ];
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       {/* Hero Section with Spline Background */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
@@ -72,24 +79,63 @@ const Index = () => {
             Full Stack Web Developer crafting digital experiences with modern technologies and creative solutions
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
-            <button className="glow-button animate-scale-in">
-              View My Work
+          {/* Navigation Buttons */}
+          <div className="flex flex-wrap gap-4 justify-center items-center mb-8 animate-fade-in">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="glow-button flex items-center gap-2 animate-scale-in"
+            >
+              <Home size={20} />
+              Home
             </button>
-            <button className="glow-secondary flex items-center gap-2 animate-scale-in">
-              <Download size={20} />
-              Download Resume
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="glow-secondary flex items-center gap-2 animate-scale-in"
+            >
+              <User size={20} />
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('projects')}
+              className="glow-secondary flex items-center gap-2 animate-scale-in"
+            >
+              <FolderOpen size={20} />
+              Projects
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="glow-secondary flex items-center gap-2 animate-scale-in"
+            >
+              <MessageCircle size={20} />
+              Contact
             </button>
           </div>
           
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
+            <button 
+              onClick={() => scrollToSection('projects')}
+              className="glow-button animate-scale-in"
+            >
+              View My Work
+            </button>
+            <a 
+              href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png"
+              download="Aditya_Singh_Resume.png"
+              className="glow-secondary flex items-center gap-2 animate-scale-in"
+            >
+              <Download size={20} />
+              Download Resume
+            </a>
+          </div>
+          
           <div className="flex justify-center gap-6 animate-fade-in">
-            <a href="https://github.com" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
+            <a href="https://github.com/adityas777" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
+            <a href="https://www.linkedin.com/in/aditya-singh-204a27289/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:aditya@example.com" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
+            <a href="mailto:adityas2110@gmail.com" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform glow-icon">
               <Mail size={24} />
             </a>
           </div>
@@ -97,7 +143,7 @@ const Index = () => {
       </section>
 
       {/* About Section with Spline Background */}
-      <section className="py-20 px-6 relative overflow-hidden">
+      <section id="about" className="py-20 px-6 relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
@@ -142,36 +188,39 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="py-20 px-6 bg-gray-800/80">
-        <div className="container mx-auto">
+      {/* Skills Section with uploaded image and Spline Background */}
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Spline Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <iframe 
+            src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
+            className="w-full h-full border-none"
+            style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
+          />
+        </div>
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
-            <span className="text-gradient">Technical Skills</span>
+            <span className="text-gradient">Skills & Technologies</span>
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {skills.map((skill, index) => (
-              <div key={skill.name} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="flex items-center mb-4">
-                  <skill.icon size={32} className="text-blue-400 mr-3 glow-icon" />
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                </div>
-                <p className="text-gray-400 text-sm mb-4">{skill.description}</p>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 glow-bar"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-                <span className="text-xs text-gray-500 mt-1 block">{skill.level}% Proficiency</span>
-              </div>
-            ))}
+          <div className="flex justify-center animate-scale-in">
+            <div className="glass-card p-8 max-w-5xl">
+              <img 
+                src="/lovable-uploads/68dc756c-0c1e-490d-95d2-54468603942c.png"
+                alt="Skills & Technologies"
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section with Spline Background */}
-      <section className="py-20 px-6 relative overflow-hidden">
+      <section id="projects" className="py-20 px-6 relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
@@ -210,14 +259,24 @@ const Index = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <button className="glow-secondary flex items-center gap-2 text-sm">
+                  <a 
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glow-secondary flex items-center gap-2 text-sm"
+                  >
                     <ExternalLink size={16} />
                     Live Demo
-                  </button>
-                  <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors glow-text">
+                  </a>
+                  <a 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors glow-text"
+                  >
                     <Github size={16} />
                     Code
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -225,9 +284,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-6 bg-gray-800/50">
-        <div className="container mx-auto text-center">
+      {/* Contact Section with Spline Background */}
+      <section id="contact" className="py-20 px-6 relative overflow-hidden">
+        {/* Spline Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <iframe 
+            src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
+            className="w-full h-full border-none"
+            style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
+          />
+        </div>
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div className="container mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in">
             <span className="text-gradient">Let's Work Together</span>
           </h2>
@@ -236,9 +307,12 @@ const Index = () => {
             Have a project in mind? I'd love to hear about it. Let's create something amazing together!
           </p>
           
-          <button className="glow-button text-lg animate-scale-in">
+          <a 
+            href="mailto:adityas2110@gmail.com"
+            className="glow-button text-lg animate-scale-in"
+          >
             Get In Touch
-          </button>
+          </a>
         </div>
       </section>
 
@@ -255,13 +329,13 @@ const Index = () => {
                 Full Stack Web Developer passionate about creating innovative digital solutions.
               </p>
               <div className="flex gap-4">
-                <a href="https://github.com" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="https://github.com/adityas777" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
                   <Github size={24} />
                 </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="https://www.linkedin.com/in/aditya-singh-204a27289/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
                   <Linkedin size={24} />
                 </a>
-                <a href="mailto:aditya@example.com" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="mailto:adityas2110@gmail.com" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
                   <Mail size={24} />
                 </a>
               </div>
@@ -271,10 +345,10 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="#about" className="text-gray-400 hover:text-white transition-colors glow-text">About</a></li>
-                <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors glow-text">Projects</a></li>
-                <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors glow-text">Skills</a></li>
-                <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors glow-text">Contact</a></li>
+                <li><button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-white transition-colors glow-text">About</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="text-gray-400 hover:text-white transition-colors glow-text">Projects</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-white transition-colors glow-text">Contact</button></li>
+                <li><a href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png" download className="text-gray-400 hover:text-white transition-colors glow-text">Resume</a></li>
               </ul>
             </div>
             
