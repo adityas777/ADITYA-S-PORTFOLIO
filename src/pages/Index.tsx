@@ -27,7 +27,7 @@ const Index = () => {
     {
       title: "Food Delivery App",
       description: "A full-stack food delivery web app with Google Maps integration and Stripe payments",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=250&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop",
       tech: ["JavaScript", "Google Maps", "Stripe", "Full-Stack"],
       liveUrl: "https://github.com/adityas777/FOOD-DILIVERY",
       githubUrl: "https://github.com/adityas777/FOOD-DILIVERY"
@@ -42,6 +42,39 @@ const Index = () => {
     }
   ];
 
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      icon: <Code className="text-blue-400" size={24} />,
+      skills: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS"]
+    },
+    {
+      title: "UI/UX Design",
+      icon: <Palette className="text-purple-400" size={24} />,
+      skills: ["Figma", "Adobe XD", "Responsive Design", "User Experience"]
+    },
+    {
+      title: "Mobile Development",
+      icon: <Smartphone className="text-green-400" size={24} />,
+      skills: ["React Native", "Flutter", "Mobile UI", "Cross-platform"]
+    },
+    {
+      title: "Backend Development",
+      icon: <Database className="text-red-400" size={24} />,
+      skills: ["Node.js", "Express", "MongoDB", "API Development"]
+    },
+    {
+      title: "Web Technologies",
+      icon: <Globe className="text-yellow-400" size={24} />,
+      skills: ["REST APIs", "GraphQL", "WebSockets", "PWA"]
+    },
+    {
+      title: "DevOps & Tools",
+      icon: <Cpu className="text-indigo-400" size={24} />,
+      skills: ["Git", "Docker", "AWS", "CI/CD"]
+    }
+  ];
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -51,9 +84,7 @@ const Index = () => {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Contact form submitted:', contactForm);
-    // Reset form and close modal
     setContactForm({ email: '', workArea: '', message: '' });
     setShowContactForm(false);
   };
@@ -92,7 +123,7 @@ const Index = () => {
             Full Stack Web Developer crafting digital experiences with modern technologies and creative solutions
           </p>
           
-          {/* Navigation Buttons - Now Transparent with Glow */}
+          {/* Navigation Buttons - Transparent with Glow */}
           <div className="flex flex-wrap gap-4 justify-center items-center mb-8 animate-fade-in">
             <button 
               onClick={() => scrollToSection('home')}
@@ -107,6 +138,13 @@ const Index = () => {
             >
               <User size={20} />
               About
+            </button>
+            <button 
+              onClick={() => scrollToSection('skills')}
+              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+            >
+              <Code size={20} />
+              Skills
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
@@ -156,7 +194,7 @@ const Index = () => {
       </section>
 
       {/* About Section with Spline Background */}
-      <section id="about" className="py-20 px-6 relative overflow-hidden">
+      <section id="about" className="py-32 px-6 relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
@@ -183,9 +221,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section with Robot Background and Hover Effects */}
-      <section className="py-20 px-6 relative overflow-hidden">
-        {/* Robot Spline Background */}
+      {/* Skills Section with Robot Background and Interactive Buttons */}
+      <section id="skills" className="py-32 px-6 relative overflow-hidden">
+        {/* Robot Spline Background with proper cursor interaction */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
@@ -195,13 +233,40 @@ const Index = () => {
         </div>
         
         {/* Semi-transparent overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
             <span className="text-gradient">Skills & Technologies</span>
           </h2>
           
+          {/* Interactive Skill Category Buttons */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {skillCategories.map((category, index) => (
+              <div 
+                key={category.title} 
+                className="glass-card-transparent p-6 hover-scale animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  {category.icon}
+                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span 
+                      key={skill}
+                      className="px-3 py-1 bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20 text-white rounded-full text-sm hover:bg-opacity-20 transition-all duration-300 cursor-pointer"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Skills Image Display */}
           <div className="flex justify-center animate-scale-in">
             <div className="glass-card-transparent p-8 max-w-5xl hover-scale">
               <img 
@@ -214,7 +279,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section with Better Spacing */}
+      {/* Projects Section with Better Spacing and Enhanced Cards */}
       <section id="projects" className="py-32 px-6 relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
@@ -235,19 +300,22 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {projects.map((project, index) => (
-              <div key={project.title} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform duration-300"
-                />
+              <div key={project.title} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in hover:shadow-2xl" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="relative overflow-hidden rounded-lg mb-4 group">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
                 
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+                <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm hover:bg-blue-500/30 transition-colors">
+                    <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs hover:bg-blue-500/30 transition-colors border border-blue-500/30">
                       {tech}
                     </span>
                   ))}
@@ -281,7 +349,7 @@ const Index = () => {
 
       {/* Contact Section with Robot Background */}
       <section id="contact" className="py-32 px-6 relative overflow-hidden">
-        {/* Robot Spline Background */}
+        {/* Robot Spline Background with proper cursor interaction */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
