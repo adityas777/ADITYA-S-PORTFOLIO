@@ -1,9 +1,15 @@
 
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Smartphone, Database, Globe, Cpu, Home, User, FolderOpen, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Smartphone, Database, Globe, Cpu, Home, User, FolderOpen, MessageCircle, X } from 'lucide-react';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    email: '',
+    workArea: '',
+    message: ''
+  });
 
   useEffect(() => {
     setIsVisible(true);
@@ -36,15 +42,6 @@ const Index = () => {
     }
   ];
 
-  const skills = [
-    { name: "Frontend Development", icon: Code, level: 95, description: "React, Vue, Angular" },
-    { name: "UI/UX Design", icon: Palette, level: 88, description: "Figma, Adobe XD" },
-    { name: "Mobile Development", icon: Smartphone, level: 85, description: "React Native, Flutter" },
-    { name: "Backend Development", icon: Database, level: 90, description: "Node.js, Python, MongoDB" },
-    { name: "Web Technologies", icon: Globe, level: 92, description: "HTML5, CSS3, JavaScript" },
-    { name: "DevOps & Tools", icon: Cpu, level: 80, description: "Docker, AWS, Git" },
-  ];
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -52,8 +49,24 @@ const Index = () => {
     }
   };
 
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Contact form submitted:', contactForm);
+    // Reset form and close modal
+    setContactForm({ email: '', workArea: '', message: '' });
+    setShowContactForm(false);
+  };
+
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setContactForm({
+      ...contactForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden cursor-animated">
       {/* Hero Section with Spline Background */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Spline Background */}
@@ -79,32 +92,32 @@ const Index = () => {
             Full Stack Web Developer crafting digital experiences with modern technologies and creative solutions
           </p>
           
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Now Transparent with Glow */}
           <div className="flex flex-wrap gap-4 justify-center items-center mb-8 animate-fade-in">
             <button 
               onClick={() => scrollToSection('home')}
-              className="glow-button flex items-center gap-2 animate-scale-in"
+              className="glass-glow-button flex items-center gap-2 animate-scale-in"
             >
               <Home size={20} />
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="glow-secondary flex items-center gap-2 animate-scale-in"
+              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <User size={20} />
               About
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="glow-secondary flex items-center gap-2 animate-scale-in"
+              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <FolderOpen size={20} />
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="glow-secondary flex items-center gap-2 animate-scale-in"
+              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <MessageCircle size={20} />
               Contact
@@ -114,14 +127,14 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
             <button 
               onClick={() => scrollToSection('projects')}
-              className="glow-button animate-scale-in"
+              className="glass-glow-button animate-scale-in"
             >
               View My Work
             </button>
             <a 
               href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png"
               download="Aditya_Singh_Resume.png"
-              className="glow-secondary flex items-center gap-2 animate-scale-in"
+              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <Download size={20} />
               Download Resume
@@ -166,41 +179,23 @@ const Index = () => {
               I'm a passionate web developer with 3+ years of experience creating stunning, user-friendly websites and applications. 
               I specialize in modern JavaScript frameworks, responsive design, and creating seamless user experiences that drive results.
             </p>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {skills.slice(0, 3).map((skill, index) => (
-                <div key={skill.name} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="flex justify-center mb-4">
-                    <skill.icon size={48} className="text-blue-400 glow-icon" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{skill.name}</h3>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                    <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                  <span className="text-sm text-gray-400">{skill.level}%</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section with uploaded image and Spline Background */}
+      {/* Skills Section with Robot Background and Hover Effects */}
       <section className="py-20 px-6 relative overflow-hidden">
-        {/* Spline Background */}
+        {/* Robot Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
-            className="w-full h-full border-none"
+            className="w-full h-full border-none pointer-events-auto"
             style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
           />
         </div>
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        {/* Semi-transparent overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
@@ -208,19 +203,19 @@ const Index = () => {
           </h2>
           
           <div className="flex justify-center animate-scale-in">
-            <div className="glass-card p-8 max-w-5xl">
+            <div className="glass-card-transparent p-8 max-w-5xl hover-scale">
               <img 
                 src="/lovable-uploads/68dc756c-0c1e-490d-95d2-54468603942c.png"
                 alt="Skills & Technologies"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                className="w-full h-auto rounded-lg shadow-2xl transition-all duration-500 hover:scale-105"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section with Spline Background */}
-      <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Projects Section with Better Spacing */}
+      <section id="projects" className="py-32 px-6 relative overflow-hidden">
         {/* Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
@@ -234,11 +229,11 @@ const Index = () => {
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         
         <div className="container mx-auto relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 animate-fade-in">
             <span className="text-gradient">Featured Projects</span>
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {projects.map((project, index) => (
               <div key={project.title} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 <img 
@@ -284,19 +279,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section with Spline Background */}
-      <section id="contact" className="py-20 px-6 relative overflow-hidden">
-        {/* Spline Background */}
+      {/* Contact Section with Robot Background */}
+      <section id="contact" className="py-32 px-6 relative overflow-hidden">
+        {/* Robot Spline Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
-            className="w-full h-full border-none"
+            className="w-full h-full border-none pointer-events-auto"
             style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
           />
         </div>
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        {/* Semi-transparent overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         <div className="container mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in">
@@ -307,14 +302,93 @@ const Index = () => {
             Have a project in mind? I'd love to hear about it. Let's create something amazing together!
           </p>
           
-          <a 
-            href="mailto:adityas2110@gmail.com"
-            className="glow-button text-lg animate-scale-in"
+          <button 
+            onClick={() => setShowContactForm(true)}
+            className="glass-glow-button text-lg animate-scale-in hover-scale"
           >
             Get In Touch
-          </a>
+          </button>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
+          <div className="glass-card p-8 max-w-md w-full animate-scale-in">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gradient">Get In Touch</h3>
+              <button 
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <form onSubmit={handleContactSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={contactForm.email}
+                  onChange={handleContactChange}
+                  required
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="workArea" className="block text-sm font-medium text-gray-300 mb-2">
+                  Area of Work
+                </label>
+                <select
+                  id="workArea"
+                  name="workArea"
+                  value={contactForm.workArea}
+                  onChange={handleContactChange}
+                  required
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select an area</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="mobile-development">Mobile Development</option>
+                  <option value="ui-ux-design">UI/UX Design</option>
+                  <option value="full-stack">Full Stack Development</option>
+                  <option value="consulting">Consulting</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message (Optional)
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={contactForm.message}
+                  onChange={handleContactChange}
+                  rows={3}
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full glow-button py-3 font-semibold"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Enhanced Footer */}
       <footer className="py-12 px-6 bg-gray-900 border-t border-gray-700">

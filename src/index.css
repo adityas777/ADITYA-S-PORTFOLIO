@@ -55,6 +55,12 @@
 }
 
 @layer components {
+  /* Animated Cursor */
+  .cursor-animated {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300bfff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity="0.3"/><circle cx="12" cy="12" r="5" fill="%2300bfff" opacity="0.6"/></svg>'), auto;
+  }
+
+  /* Original Glow Buttons */
   .glow-button {
     @apply relative px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 overflow-hidden;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(147, 51, 234, 0.2);
@@ -73,6 +79,47 @@
   .glow-button:hover {
     @apply transform scale-105 shadow-2xl;
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(147, 51, 234, 0.4), 0 0 90px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Glass Glow Buttons - Transparent with Glow */
+  .glass-glow-button {
+    @apply relative px-8 py-3 bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 overflow-hidden;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(147, 51, 234, 0.2);
+  }
+
+  .glass-glow-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg blur-lg opacity-20 transition-opacity duration-300;
+    z-index: -1;
+  }
+
+  .glass-glow-button:hover::before {
+    @apply opacity-40;
+  }
+
+  .glass-glow-button:hover {
+    @apply transform scale-105 shadow-2xl bg-opacity-20;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(147, 51, 234, 0.4), 0 0 90px rgba(59, 130, 246, 0.2);
+  }
+
+  .glass-glow-secondary {
+    @apply relative px-6 py-2 bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 text-white font-medium rounded-lg shadow-lg transition-all duration-300 overflow-hidden;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3), 0 0 30px rgba(20, 184, 166, 0.2);
+  }
+
+  .glass-glow-secondary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-lg blur-lg opacity-20 transition-opacity duration-300;
+    z-index: -1;
+  }
+
+  .glass-glow-secondary:hover::before {
+    @apply opacity-40;
+  }
+
+  .glass-glow-secondary:hover {
+    @apply transform scale-105 bg-opacity-20;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.5), 0 0 50px rgba(20, 184, 166, 0.3);
   }
 
   .glow-secondary {
@@ -117,6 +164,26 @@
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5), 0 0 30px rgba(59, 130, 246, 0.2);
   }
 
+  /* Glass Card Transparent - For Skills Section */
+  .glass-card-transparent {
+    @apply bg-white bg-opacity-5 backdrop-blur-lg border border-white border-opacity-10 rounded-xl shadow-xl transition-all duration-500;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  .glass-card-transparent:hover {
+    @apply bg-opacity-15 border-opacity-30;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4), 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Hover Scale Effect */
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-scale:hover {
+    @apply transform scale-105;
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400 bg-clip-text text-transparent;
   }
@@ -157,6 +224,11 @@
   50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 40px rgba(147, 51, 234, 0.3); }
 }
 
+@keyframes cursorPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
 .float-animation {
   animation: float 6s ease-in-out infinite;
 }
@@ -185,6 +257,10 @@
   animation: glow 3s ease-in-out infinite;
 }
 
+.animate-cursor {
+  animation: cursorPulse 2s ease-in-out infinite;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -206,4 +282,14 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Enhanced hover effects for interactive elements */
+button:hover, a:hover {
+  transition: all 0.3s ease;
+}
+
+/* Special cursor for interactive Spline areas */
+iframe:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="%2300bfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12" opacity="0.4"/><circle cx="16" cy="16" r="6" fill="%2300bfff" opacity="0.8"/><circle cx="16" cy="16" r="2" fill="%23ffffff"/></svg>'), auto;
 }
