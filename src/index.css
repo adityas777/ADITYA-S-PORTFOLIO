@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,12 +54,157 @@
 }
 
 @layer components {
-  /* Animated Cursor */
+  /* Enhanced Animated Cursor */
   .cursor-animated {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300bfff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity="0.3"/><circle cx="12" cy="12" r="5" fill="%2300bfff" opacity="0.6"/></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="%2300bfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12" opacity="0.4" fill="%2300bfff"/><circle cx="16" cy="16" r="6" fill="%2300bfff" opacity="0.8"/><circle cx="16" cy="16" r="2" fill="%23ffffff"/></svg>'), auto;
   }
 
-  /* Original Glow Buttons */
+  /* Enhanced Glass Glow Buttons */
+  .glass-glow-button-enhanced {
+    @apply relative px-8 py-3 bg-white bg-opacity-5 backdrop-blur-xl border border-white border-opacity-15 text-white font-semibold rounded-lg shadow-xl transition-all duration-500 overflow-hidden;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.4), 0 0 50px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-glow-button-enhanced::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400 rounded-lg blur-xl opacity-30 transition-opacity duration-500;
+    z-index: -1;
+  }
+
+  .glass-glow-button-enhanced:hover::before {
+    @apply opacity-60;
+  }
+
+  .glass-glow-button-enhanced:hover {
+    @apply transform scale-105 shadow-2xl bg-opacity-15 border-opacity-30;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.7), 0 0 80px rgba(147, 51, 234, 0.5), 0 0 120px rgba(16, 185, 129, 0.3);
+  }
+
+  .glass-glow-secondary-enhanced {
+    @apply relative px-6 py-2 bg-white bg-opacity-5 backdrop-blur-xl border border-white border-opacity-15 text-white font-medium rounded-lg shadow-xl transition-all duration-500 overflow-hidden;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(20, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-glow-secondary-enhanced::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-400 rounded-lg blur-xl opacity-30 transition-opacity duration-500;
+    z-index: -1;
+  }
+
+  .glass-glow-secondary-enhanced:hover::before {
+    @apply opacity-60;
+  }
+
+  .glass-glow-secondary-enhanced:hover {
+    @apply transform scale-105 bg-opacity-15 border-opacity-30;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), 0 0 60px rgba(20, 184, 166, 0.4), 0 0 90px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Ultra Transparent Cards for Skills */
+  .glass-card-ultra-transparent {
+    @apply bg-white bg-opacity-3 backdrop-blur-xl border border-white border-opacity-8 rounded-xl shadow-xl transition-all duration-700;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), 0 0 20px rgba(59, 130, 246, 0.08);
+  }
+
+  .glass-card-ultra-transparent:hover {
+    @apply bg-opacity-8 border-opacity-20;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Enhanced Text Glow Effects */
+  .glow-text-vibrant {
+    transition: all 0.3s ease;
+  }
+
+  .glow-text-vibrant:hover {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.6), 0 0 60px rgba(16, 185, 129, 0.4);
+    filter: brightness(1.2);
+  }
+
+  .glow-text-interactive {
+    transition: all 0.3s ease;
+  }
+
+  .glow-text-interactive:hover {
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.7), 0 0 30px rgba(147, 51, 234, 0.5);
+    color: #ffffff;
+    filter: brightness(1.15);
+  }
+
+  .glow-text-subtle {
+    transition: all 0.3s ease;
+  }
+
+  .glow-text-subtle:hover {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(147, 51, 234, 0.3);
+    color: #f3f4f6;
+  }
+
+  /* Enhanced Icon Glow */
+  .glow-icon-enhanced:hover {
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 30px rgba(147, 51, 234, 0.6));
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+    transform: scale(1.2);
+  }
+
+  /* Enhanced Form Input Glow */
+  .glow-input:focus {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(147, 51, 234, 0.3);
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+
+  /* Skill Button Specific Glow */
+  .skill-button-glow:hover {
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4), 0 0 50px rgba(59, 130, 246, 0.3), 0 0 100px rgba(147, 51, 234, 0.2);
+  }
+
+  .skill-tag-glow:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6), 0 0 30px rgba(147, 51, 234, 0.4);
+  }
+
+  /* Project Card Enhanced Glow */
+  .project-card-glow:hover {
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.6), 0 0 60px rgba(59, 130, 246, 0.4), 0 0 120px rgba(147, 51, 234, 0.3);
+  }
+
+  /* Section Gradient Backgrounds */
+  .hero-gradient {
+    background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #059669 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  .about-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #1e40af 50%, #1f2937 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+  }
+
+  .skills-gradient {
+    background: linear-gradient(135deg, #059669 0%, #1e40af 50%, #7c3aed 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+  }
+
+  .projects-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #059669 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 22s ease infinite;
+  }
+
+  .contact-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #059669 50%, #1e40af 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 16s ease infinite;
+  }
+
+  .footer-gradient {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+  }
+
+  /* Enhanced Button Styles */
   .glow-button {
     @apply relative px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 overflow-hidden;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(147, 51, 234, 0.2);
@@ -81,7 +225,6 @@
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(147, 51, 234, 0.4), 0 0 90px rgba(59, 130, 246, 0.2);
   }
 
-  /* Glass Glow Buttons - Transparent with Glow */
   .glass-glow-button {
     @apply relative px-8 py-3 bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 overflow-hidden;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(147, 51, 234, 0.2);
@@ -291,5 +434,27 @@ button:hover, a:hover {
 
 /* Special cursor for interactive Spline areas */
 iframe:hover {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="%2300bfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12" opacity="0.4"/><circle cx="16" cy="16" r="6" fill="%2300bfff" opacity="0.8"/><circle cx="16" cy="16" r="2" fill="%23ffffff"/></svg>'), auto;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="%2300bfff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="15" opacity="0.5" fill="%2300bfff"/><circle cx="20" cy="20" r="8" fill="%2300bfff" opacity="0.9"/><circle cx="20" cy="20" r="3" fill="%23ffffff"/><path d="M20 5v6M20 29v6M35 20h-6M11 20H5" stroke="%23ffffff" stroke-width="2"/></svg>'), auto;
+}
+
+/* Enhanced Loading Spinner */
+.loading-spinner {
+  border: 3px solid rgba(59, 130, 246, 0.3);
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
 }
