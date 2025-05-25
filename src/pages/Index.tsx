@@ -115,7 +115,7 @@ const Index = () => {
         <div className={`container mx-auto px-6 text-center z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="float-animation">
             <h1 className="text-6xl md:text-8xl font-bold mb-6">
-              <span className="text-gradient animate-pulse">ADITYA SINGH</span>
+              <span className="galaxy-text-hero animate-pulse">ADITYA SINGH</span>
             </h1>
           </div>
           
@@ -123,39 +123,39 @@ const Index = () => {
             Full Stack Web Developer crafting digital experiences with modern technologies and creative solutions
           </p>
           
-          {/* Navigation Buttons - Transparent with Glow */}
+          {/* Navigation Buttons - Enhanced with Glow */}
           <div className="flex flex-wrap gap-4 justify-center items-center mb-8 animate-fade-in">
             <button 
               onClick={() => scrollToSection('home')}
-              className="glass-glow-button flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-button flex items-center gap-2 animate-scale-in"
             >
               <Home size={20} />
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <User size={20} />
               About
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <Code size={20} />
               Skills
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <FolderOpen size={20} />
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <MessageCircle size={20} />
               Contact
@@ -165,14 +165,14 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
             <button 
               onClick={() => scrollToSection('projects')}
-              className="glass-glow-button animate-scale-in"
+              className="enhanced-glow-button animate-scale-in"
             >
               View My Work
             </button>
             <a 
               href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png"
               download="Aditya_Singh_Resume.png"
-              className="glass-glow-secondary flex items-center gap-2 animate-scale-in"
+              className="enhanced-glow-secondary flex items-center gap-2 animate-scale-in"
             >
               <Download size={20} />
               Download Resume
@@ -245,7 +245,7 @@ const Index = () => {
             {skillCategories.map((category, index) => (
               <div 
                 key={category.title} 
-                className="glass-card-transparent p-6 hover-scale animate-fade-in"
+                className="glass-card-transparent p-6 hover-scale animate-fade-in enhanced-glow-card"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -256,7 +256,7 @@ const Index = () => {
                   {category.skills.map((skill) => (
                     <span 
                       key={skill}
-                      className="px-3 py-1 bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-20 text-white rounded-full text-sm hover:bg-opacity-20 transition-all duration-300 cursor-pointer"
+                      className="enhanced-skill-tag"
                     >
                       {skill}
                     </span>
@@ -300,7 +300,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {projects.map((project, index) => (
-              <div key={project.title} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in hover:shadow-2xl" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={project.title} className="enhanced-project-card animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="relative overflow-hidden rounded-lg mb-4 group">
                   <img 
                     src={project.image} 
@@ -315,7 +315,7 @@ const Index = () => {
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs hover:bg-blue-500/30 transition-colors border border-blue-500/30">
+                    <span key={tech} className="enhanced-tech-tag">
                       {tech}
                     </span>
                   ))}
@@ -326,7 +326,7 @@ const Index = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glow-secondary flex items-center gap-2 text-sm"
+                    className="enhanced-glow-secondary flex items-center gap-2 text-sm"
                   >
                     <ExternalLink size={16} />
                     Live Demo
@@ -372,7 +372,7 @@ const Index = () => {
           
           <button 
             onClick={() => setShowContactForm(true)}
-            className="glass-glow-button text-lg animate-scale-in hover-scale"
+            className="enhanced-glow-button text-lg animate-scale-in hover-scale"
           >
             Get In Touch
           </button>
@@ -387,7 +387,7 @@ const Index = () => {
               <h3 className="text-2xl font-bold text-gradient">Get In Touch</h3>
               <button 
                 onClick={() => setShowContactForm(false)}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors enhanced-glow-icon"
               >
                 <X size={24} />
               </button>
@@ -405,7 +405,7 @@ const Index = () => {
                   value={contactForm.email}
                   onChange={handleContactChange}
                   required
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="enhanced-input"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -420,7 +420,7 @@ const Index = () => {
                   value={contactForm.workArea}
                   onChange={handleContactChange}
                   required
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="enhanced-input"
                 >
                   <option value="">Select an area</option>
                   <option value="web-development">Web Development</option>
@@ -442,14 +442,14 @@ const Index = () => {
                   value={contactForm.message}
                   onChange={handleContactChange}
                   rows={3}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="enhanced-input"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
               
               <button
                 type="submit"
-                className="w-full glow-button py-3 font-semibold"
+                className="w-full enhanced-glow-button py-3 font-semibold"
               >
                 Send Message
               </button>
@@ -458,26 +458,38 @@ const Index = () => {
         </div>
       )}
 
-      {/* Enhanced Footer */}
-      <footer className="py-12 px-6 bg-gray-900 border-t border-gray-700">
-        <div className="container mx-auto">
+      {/* Enhanced Footer with Spline Background */}
+      <footer className="py-12 px-6 relative overflow-hidden border-t border-gray-700">
+        {/* New Spline Background for Footer */}
+        <div className="absolute inset-0 w-full h-full">
+          <iframe 
+            src="https://my.spline.design/projectpromoclickzoom-KoavZAXl2ZCpEf2aKnzXT9ti/"
+            className="w-full h-full border-none"
+            style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
+          />
+        </div>
+        
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Brand Section */}
+            {/* Brand Section with Enhanced Galaxy Effect */}
             <div className="col-span-2">
               <h3 className="text-2xl font-bold mb-4">
-                <span className="text-gradient">Aditya Singh</span>
+                <span className="galaxy-text-footer">Aditya Singh</span>
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-300 mb-4">
                 Full Stack Web Developer passionate about creating innovative digital solutions.
               </p>
               <div className="flex gap-4">
-                <a href="https://github.com/adityas777" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="https://github.com/adityas777" target="_blank" rel="noopener noreferrer" className="enhanced-glow-icon">
                   <Github size={24} />
                 </a>
-                <a href="https://www.linkedin.com/in/aditya-singh-204a27289/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="https://www.linkedin.com/in/aditya-singh-204a27289/" target="_blank" rel="noopener noreferrer" className="enhanced-glow-icon">
                   <Linkedin size={24} />
                 </a>
-                <a href="mailto:adityas2110@gmail.com" className="text-gray-400 hover:text-white transition-all duration-300 glow-icon">
+                <a href="mailto:adityas2110@gmail.com" className="enhanced-glow-icon">
                   <Mail size={24} />
                 </a>
               </div>
@@ -487,10 +499,10 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-2">
-                <li><button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-white transition-colors glow-text">About</button></li>
-                <li><button onClick={() => scrollToSection('projects')} className="text-gray-400 hover:text-white transition-colors glow-text">Projects</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-white transition-colors glow-text">Contact</button></li>
-                <li><a href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png" download className="text-gray-400 hover:text-white transition-colors glow-text">Resume</a></li>
+                <li><button onClick={() => scrollToSection('about')} className="enhanced-footer-link">About</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="enhanced-footer-link">Projects</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="enhanced-footer-link">Contact</button></li>
+                <li><a href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png" download className="enhanced-footer-link">Resume</a></li>
               </ul>
             </div>
             
@@ -498,21 +510,21 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
               <ul className="space-y-2">
-                <li><span className="text-gray-400">Web Development</span></li>
-                <li><span className="text-gray-400">Mobile Apps</span></li>
-                <li><span className="text-gray-400">UI/UX Design</span></li>
-                <li><span className="text-gray-400">Consulting</span></li>
+                <li><span className="text-gray-300">Web Development</span></li>
+                <li><span className="text-gray-300">Mobile Apps</span></li>
+                <li><span className="text-gray-300">UI/UX Design</span></li>
+                <li><span className="text-gray-300">Consulting</span></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0">
+          <div className="border-t border-gray-600 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-300 mb-4 md:mb-0">
               © 2024 Aditya Singh. Built with React & Tailwind CSS
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm glow-text">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm glow-text">Terms of Service</a>
+              <a href="#" className="enhanced-footer-link text-sm">Privacy Policy</a>
+              <a href="#" className="enhanced-footer-link text-sm">Terms of Service</a>
             </div>
           </div>
         </div>
