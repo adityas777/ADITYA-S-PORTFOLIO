@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Smartphone, Database, Globe, Cpu, Home, User, FolderOpen, MessageCircle, X } from 'lucide-react';
 
@@ -13,7 +14,8 @@ const Index = () => {
     hero: false,
     about: false,
     skills: false,
-    contact: false
+    contact: false,
+    footer: false
   });
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const Index = () => {
     {
       title: "Food Delivery App",
       description: "A full-stack food delivery web app with Google Maps integration and Stripe payments",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop",
+      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=250&fit=crop&q=80",
       tech: ["JavaScript", "Google Maps", "Stripe", "Full-Stack"],
       liveUrl: "https://github.com/adityas777/FOOD-DILIVERY",
       githubUrl: "https://github.com/adityas777/FOOD-DILIVERY"
@@ -109,29 +111,29 @@ const Index = () => {
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden cursor-animated">
       {/* Hero Section with Spline Background */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden hero-gradient">
-        {/* Optimized Spline Background with Loading */}
+        {/* Optimized Spline Background with Faster Loading */}
         <div className="absolute inset-0 w-full h-full">
           {!splineLoaded.hero && (
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-gray-900 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-400"></div>
+              <div className="loading-spinner"></div>
             </div>
           )}
           <iframe 
             src="https://my.spline.design/themuseum-P8hpUTGZRDLpBIjrQdCjmTUw/"
-            className={`w-full h-full border-none transition-opacity duration-500 ${splineLoaded.hero ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transform: 'scale(1.05)', transformOrigin: 'center center' }}
-            loading="lazy"
+            className={`w-full h-full border-none transition-opacity duration-300 ${splineLoaded.hero ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'scale(1.02)', transformOrigin: 'center center' }}
+            loading="eager"
             onLoad={() => handleSplineLoad('hero')}
           />
         </div>
         
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         
         <div className={`container mx-auto px-6 text-center z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="float-animation">
             <h1 className="text-6xl md:text-8xl font-bold mb-6">
-              <span className="text-gradient animate-pulse glow-text-vibrant">ADITYA SINGH</span>
+              <span className="dark-galaxy-text animate-pulse glow-text-vibrant">ADITYA SINGH</span>
             </h1>
           </div>
           
@@ -215,28 +217,28 @@ const Index = () => {
         <div className="absolute inset-0 w-full h-full">
           {!splineLoaded.about && (
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-400"></div>
+              <div className="loading-spinner"></div>
             </div>
           )}
           <iframe 
             src="https://my.spline.design/particlenebula-DVXLglRttXue7VlJ2jslaLU8/"
-            className={`w-full h-full border-none transition-opacity duration-500 ${splineLoaded.about ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transform: 'scale(1.05)', transformOrigin: 'center center' }}
+            className={`w-full h-full border-none transition-opacity duration-300 ${splineLoaded.about ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'scale(1.02)', transformOrigin: 'center center' }}
             loading="lazy"
             onLoad={() => handleSplineLoad('about')}
           />
         </div>
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
-            <span className="text-gradient glow-text-vibrant">About Me</span>
+            <span className="dark-galaxy-text glow-text-vibrant">About Me</span>
           </h2>
           
           <div className="glass-card p-8 md:p-12 max-w-4xl mx-auto animate-scale-in">
-            <p className="text-lg text-gray-300 leading-relaxed mb-8 glow-text-subtle">
+            <p className="text-lg text-gray-200 leading-relaxed mb-8 glow-text-subtle">
               I'm a passionate web developer with 3+ years of experience creating stunning, user-friendly websites and applications. 
               I specialize in modern JavaScript frameworks, responsive design, and creating seamless user experiences that drive results.
             </p>
@@ -250,27 +252,27 @@ const Index = () => {
         <div className="absolute inset-0 w-full h-full">
           {!splineLoaded.skills && (
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-blue-900 to-gray-900 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-emerald-400"></div>
+              <div className="loading-spinner"></div>
             </div>
           )}
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
-            className={`w-full h-full border-none pointer-events-auto transition-opacity duration-500 ${splineLoaded.skills ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transform: 'scale(1.02)', transformOrigin: 'center center' }}
+            className={`w-full h-full border-none pointer-events-auto transition-opacity duration-300 ${splineLoaded.skills ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'scale(1.01)', transformOrigin: 'center center' }}
             loading="lazy"
             onLoad={() => handleSplineLoad('skills')}
           />
         </div>
         
         {/* Reduced overlay opacity for better robot visibility */}
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">
-            <span className="text-gradient glow-text-vibrant">Skills & Technologies</span>
+            <span className="dark-galaxy-text glow-text-vibrant">Skills & Technologies</span>
           </h2>
           
-          {/* Transparent Skill Buttons Extracted from Image */}
+          {/* Transparent Skill Buttons */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {skillCategories.map((category, index) => (
               <div 
@@ -298,40 +300,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section with Enhanced Spacing */}
+      {/* Projects Section with Enhanced Background */}
       <section id="projects" className="py-40 px-6 relative overflow-hidden projects-gradient">
-        {/* Enhanced Spline Background */}
+        {/* Enhanced Prominent Project Background */}
         <div className="absolute inset-0 w-full h-full">
           <iframe 
             src="https://my.spline.design/particlenebula-DVXLglRttXue7VlJ2jslaLU8/"
-            className="w-full h-full border-none transition-opacity duration-500"
-            style={{ transform: 'scale(1.05)', transformOrigin: 'center center' }}
+            className="w-full h-full border-none transition-opacity duration-300"
+            style={{ transform: 'scale(1.1)', transformOrigin: 'center center' }}
             loading="lazy"
           />
         </div>
         
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        {/* Enhanced Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
         
         <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 animate-fade-in">
-            <span className="text-gradient glow-text-vibrant">Featured Projects</span>
+            <span className="dark-galaxy-text glow-text-vibrant">Featured Projects</span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {projects.map((project, index) => (
-              <div key={project.title} className="glass-card p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in hover:shadow-2xl project-card-glow" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={project.title} className="glass-card-enhanced p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in hover:shadow-2xl project-card-glow" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="relative overflow-hidden rounded-lg mb-4 group">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 
                 <h3 className="text-xl font-bold mb-2 text-white glow-text-interactive">{project.title}</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed glow-text-subtle">{project.description}</p>
+                <p className="text-gray-200 mb-4 text-sm leading-relaxed glow-text-subtle">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
@@ -355,7 +358,7 @@ const Index = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors glow-text-interactive"
+                    className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors glow-text-interactive"
                   >
                     <Github size={16} />
                     Code
@@ -373,27 +376,27 @@ const Index = () => {
         <div className="absolute inset-0 w-full h-full">
           {!splineLoaded.contact && (
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-gray-900 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-400"></div>
+              <div className="loading-spinner"></div>
             </div>
           )}
           <iframe 
             src="https://my.spline.design/robotfollowcursorforlandingpage-K1dzNEhJ6skRNqf2NDGxO1aj/"
-            className={`w-full h-full border-none pointer-events-auto transition-opacity duration-500 ${splineLoaded.contact ? 'opacity-100' : 'opacity-0'}`}
-            style={{ transform: 'scale(1.02)', transformOrigin: 'center center' }}
+            className={`w-full h-full border-none pointer-events-auto transition-opacity duration-300 ${splineLoaded.contact ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'scale(1.01)', transformOrigin: 'center center' }}
             loading="lazy"
             onLoad={() => handleSplineLoad('contact')}
           />
         </div>
         
         {/* Reduced overlay opacity */}
-        <div className="absolute inset-0 bg-black bg-opacity-25"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         <div className="container mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 animate-fade-in">
-            <span className="text-gradient glow-text-vibrant">Let's Work Together</span>
+            <span className="dark-galaxy-text glow-text-vibrant">Let's Work Together</span>
           </h2>
           
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto animate-fade-in glow-text-subtle">
+          <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto animate-fade-in glow-text-subtle">
             Have a project in mind? I'd love to hear about it. Let's create something amazing together!
           </p>
           
@@ -411,7 +414,7 @@ const Index = () => {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
           <div className="glass-card p-8 max-w-md w-full animate-scale-in">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold text-gradient glow-text-vibrant">Get In Touch</h3>
+              <h3 className="text-2xl font-bold dark-galaxy-text glow-text-vibrant">Get In Touch</h3>
               <button 
                 onClick={() => setShowContactForm(false)}
                 className="text-gray-400 hover:text-white transition-colors glow-icon-enhanced"
@@ -485,16 +488,35 @@ const Index = () => {
         </div>
       )}
 
-      {/* Enhanced Footer */}
-      <footer className="py-12 px-6 bg-gray-900 border-t border-gray-700 footer-gradient">
-        <div className="container mx-auto">
+      {/* Enhanced Footer with New Spline */}
+      <footer className="py-20 px-6 relative overflow-hidden footer-gradient">
+        {/* New Spline Background for Footer */}
+        <div className="absolute inset-0 w-full h-full">
+          {!splineLoaded.footer && (
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
+              <div className="loading-spinner"></div>
+            </div>
+          )}
+          <iframe 
+            src="https://my.spline.design/projectpromoclickzoom-KoavZAXl2ZCpEf2aKnzXT9ti/"
+            className={`w-full h-full border-none transition-opacity duration-300 ${splineLoaded.footer ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'scale(1.05)', transformOrigin: 'center center' }}
+            loading="lazy"
+            onLoad={() => handleSplineLoad('footer')}
+          />
+        </div>
+        
+        {/* Enhanced overlay for text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand Section */}
             <div className="col-span-2">
               <h3 className="text-2xl font-bold mb-4">
-                <span className="text-gradient">Aditya Singh</span>
+                <span className="dark-galaxy-text">Aditya Singh</span>
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-300 mb-4">
                 Full Stack Web Developer passionate about creating innovative digital solutions.
               </p>
               <div className="flex gap-4">
@@ -512,29 +534,29 @@ const Index = () => {
             
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-4 text-white glow-text-interactive">Quick Links</h4>
               <ul className="space-y-2">
-                <li><button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-white transition-colors glow-text-interactive">About</button></li>
-                <li><button onClick={() => scrollToSection('projects')} className="text-gray-400 hover:text-white transition-colors glow-text-interactive">Projects</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-white transition-colors glow-text-interactive">Contact</button></li>
-                <li><a href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png" download className="text-gray-400 hover:text-white transition-colors glow-text-interactive">Resume</a></li>
+                <li><button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-white transition-colors glow-text-interactive">About</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-white transition-colors glow-text-interactive">Projects</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-white transition-colors glow-text-interactive">Contact</button></li>
+                <li><a href="/lovable-uploads/b0379306-b9e2-41cc-a7be-728ff6f71947.png" download className="text-gray-300 hover:text-white transition-colors glow-text-interactive">Resume</a></li>
               </ul>
             </div>
             
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
+              <h4 className="text-lg font-semibold mb-4 text-white glow-text-interactive">Services</h4>
               <ul className="space-y-2">
-                <li><span className="text-gray-400">Web Development</span></li>
-                <li><span className="text-gray-400">Mobile Apps</span></li>
-                <li><span className="text-gray-400">UI/UX Design</span></li>
-                <li><span className="text-gray-400">Consulting</span></li>
+                <li><span className="text-gray-300 glow-text-subtle">Web Development</span></li>
+                <li><span className="text-gray-300 glow-text-subtle">Mobile Apps</span></li>
+                <li><span className="text-gray-300 glow-text-subtle">UI/UX Design</span></li>
+                <li><span className="text-gray-300 glow-text-subtle">Consulting</span></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0">
+            <p className="text-gray-400 mb-4 md:mb-0 glow-text-subtle">
               © 2024 Aditya Singh. Built with React & Tailwind CSS
             </p>
             <div className="flex gap-6">
