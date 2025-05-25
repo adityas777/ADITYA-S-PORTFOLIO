@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,12 +103,12 @@
 
   /* Ultra Transparent Cards for Skills */
   .glass-card-ultra-transparent {
-    @apply bg-white bg-opacity-3 backdrop-blur-xl border border-white border-opacity-8 rounded-xl shadow-xl transition-all duration-700;
+    @apply bg-white bg-opacity-5 backdrop-blur-xl border border-white border-opacity-10 rounded-xl shadow-xl transition-all duration-700;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), 0 0 20px rgba(59, 130, 246, 0.08);
   }
 
   .glass-card-ultra-transparent:hover {
-    @apply bg-opacity-8 border-opacity-20;
+    @apply bg-opacity-10 border-opacity-20;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3), 0 0 40px rgba(59, 130, 246, 0.2);
   }
 
